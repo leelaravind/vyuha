@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.jsonl
+prototype/watcher_log.jsonl
+prototype/alerts.jsonl
