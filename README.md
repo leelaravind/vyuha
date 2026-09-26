@@ -6,6 +6,7 @@ This folder is a complete copy of the project (working copy: `G:\CYBER\`).
 ## Start here
 | Read | For |
 |---|---|
+| **`docs/why-this-matters.md`** | **Why this project is important and why it should be built — read first** |
 | `docs/overview.md` | What the project is and why it exists |
 | `docs/product.md` | Full product description, features, limits, roadmap |
 | `docs/prd.md` | Product requirements (FR-1..12, NFR-1..7), risks, milestones |
