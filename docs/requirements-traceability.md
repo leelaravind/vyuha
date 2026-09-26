@@ -56,3 +56,16 @@
 - Rich, human-convincing decoy content (the hardest problem, design §46).
 - Real-world security testing against live adversaries.
 - Production hardening of the watcher's isolation.
+
+## Spec v0.2 additions (specified, not yet built)
+| ID | Requirement | Planned module | Milestone |
+|---|---|---|---|
+| FR-13..15 | Decoy realism, liveness, layout uniqueness | `decoys.py` (template engine), `config.py` | M4 |
+| FR-16 | Response hook (pre-approved containment) | new `response.py` | M6 |
+| FR-17 | Puzzle modulus persistence + rotation | `timelock.py`, `config.py` | M7 |
+| FR-18 | Signed evidence bundle | new `evidence.py` | M7 |
+| FR-19 | Passkey / FIDO2 real path | `realpath.py` | M7 |
+| FR-20 | Shared state for sessions / rate limits | `server.py`, `ratelimit.py` | M7 |
+| FR-21 | Fingerprint metric | `metrics.py` | M5 |
+| NFR-8 | True out-of-band watcher (separate host) | `watcher.py`, `alerting.py` | M6 |
+| NFR-9..11 | Red-team gate, continuous measurement, restraint | process / review | M5+ |

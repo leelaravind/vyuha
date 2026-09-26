@@ -16,8 +16,10 @@ This folder is a complete copy of the project (working copy: `G:\CYBER\`).
 | `prototype/README.md` | How to run the software |
 
 ## Status at a glance
-- Design: complete for v1.
-- Software: v1 built at lab scale; all PRD requirements implemented.
+- **Spec: v0.2** (see `CHANGELOG.md`). Implementation: 0.1.0 (the v0.1 requirement set).
+- Design: complete for v1; v0.2 adds realism, adversarial validation, true
+  out-of-band watcher, response hook, modulus rotation, evidence bundle.
+- Software: v1 built at lab scale; all v0.1 PRD requirements implemented.
 - Tests: 23/23 passing (`cd prototype && python -m vyuha.cli selftest`).
 - Verified from this copy on 2026-09-26.
 - Deferred to a later build: multi-ring depth from the original scope,

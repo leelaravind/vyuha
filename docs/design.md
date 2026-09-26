@@ -46,10 +46,23 @@ legitimate reason to be there, so no analysis is needed to raise a flag.
   against the fastest adversary hardware — a simplification most deployments do
   not get to make.
 
-## 5. Rotation and expiry [§8][§54]
-- Vault secrets rotate faster than the puzzle takes to solve (for example, rotate
-  every ~60 s against a 180 s floor). Anything reached through the decoy field has
-  therefore already changed several times over — and is fake to begin with.
+## 5. Rotation and expiry [§8][§54] — clarified in spec v0.2
+- The fake values behind decoys rotate faster than the puzzle takes to solve (for
+  example, every ~60 s against a 180 s floor). Anything reached through the decoy
+  field has therefore already changed several times over — and is fake to begin with.
+- **How it works:** nothing is scheduled or stored. A value is *derived* from the
+  current time window (`epoch = now // rotation_seconds`) and a per-deployment
+  secret, so it changes automatically when the window changes. Staleness of any
+  presented value is provable (`age_epochs`).
+- **Scope, stated plainly:** this rotates the *fake* decoy values only. It does not
+  rotate any genuine key. Real-asset key rotation is a separate control the
+  organisation must already run (PRD non-goals, v0.2).
+- **Known gaps (v0.2 requirements):** the puzzle modulus is generated per process
+  and never rotated — FR-17 specifies persistence and scheduled rotation. The
+  deployment seed must be treated as a secret, since every past and future decoy
+  value derives from it.
+- **Clock dependence:** rotation is wall-clock based; a clock jump shifts epochs.
+  Harmless for fake values, but the host clock should be disciplined (NTP).
 
 ## 6. The legitimate-user path [§52]
 - Decoys sit only where real work never goes, so honest users have no reason to
